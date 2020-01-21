@@ -1,0 +1,11 @@
+<%= form_for @user, url: login_path do |f| %>
+    <%= f.label "Username:"%>
+    <%= f.text_field :username %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %> <br>
+    <%= f.submit 'Login'%>
+<%end%>
+
+<% if flash[:alert]%>
+<%= flash[:alert] %>
+<% end%>

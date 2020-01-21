@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <%= link_to 'Login', controller: "sessions", action: "new" %>
+    <%= link_to 'Sign Up', controller: "users", action: "new" %>
+    <%= link_to "Log Out", logout_path, method: :delete %><br>
+    <%= link_to 'Home', controller: "pages", action: "home" %>
+    <%= link_to "Profile", controller: "users", action: "show", id: @user.id unless !@user.id%>
+    <%= @user.username %>
+    <br><br>
     <%= yield %>
   </body>
 </html>
