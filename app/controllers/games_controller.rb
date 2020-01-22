@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
     def index 
-        @games = Game.top_10
+        @games = Game.top_6
     end
 
     def show 

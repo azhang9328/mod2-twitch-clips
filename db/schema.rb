@@ -17,14 +17,17 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "url"
     t.integer "view_count"
     t.string "date_clipped"
+    t.integer "streamer_tw_id"
     t.integer "streamer_id"
     t.integer "game_id"
+    t.datetime "corf"
   end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
     t.integer "tw_id"
+    t.datetime "corf"
   end
 
   create_table "streamers", force: :cascade do |t|

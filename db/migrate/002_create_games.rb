@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration[5.0]
             t.string :name
             t.string :img_url
             t.integer :tw_id
+            t.datetime :corf
         end
     end
 end
