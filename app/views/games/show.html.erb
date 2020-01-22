@@ -3,7 +3,11 @@
 <%= form_for @game, controller: 'game', action: 'favorite'  do |f| %>
     <%= f.submit 'Add to Favorites' %>
 <%end%><br>
-<h2><%= "Users" unless @game.users.empty? %></h2>
+<h2>Top Clips</h2>
+<% @game.top_clips.each do |clip| %>
+<%= link_to clip.title, clip_path(clip) %><br>
+<% end %>
+<h2><%= "Users Favorite" unless @game.users.empty? %></h2>
 <% @game.users.each do |user|%>
 <%= link_to user.username, user_path(user) %><br>
 <% end%>

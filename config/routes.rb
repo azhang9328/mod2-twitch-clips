@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   patch 'games/:id', to: 'games#favorite'
   resources :games, only: [:index, :show]
+  resources :clips, only: [:show]
   root 'pages#home'
 end

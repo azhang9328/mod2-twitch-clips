@@ -18,15 +18,5 @@
 				"label": "layout"
 			}
 		]
-	},
-	{
-		"path": "$ROOTPATH$/app/views/pages/home.html.erb",
-		"bookmarks": [
-			{
-				"line": 0,
-				"column": 17,
-				"label": "home"
-			}
-		]
 	}
 ]
