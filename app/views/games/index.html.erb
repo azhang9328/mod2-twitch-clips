@@ -1,0 +1,5 @@
+<h1>Games</h1>
+<% @games.each do |game| %>
+<h2><%= link_to game.name, game_path(game) %></h2>
+<%= image_tag(game.img_url) %>
+<% end%>

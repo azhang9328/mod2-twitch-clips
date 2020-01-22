@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users, only: [:new, :create, :show]
-  resources :games, only: [:index]
+  patch 'games/:id', to: 'games#favorite'
+  resources :games, only: [:index, :show]
   root 'pages#home'
 end
