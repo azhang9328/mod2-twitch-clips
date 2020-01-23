@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   patch 'clips/:id', to: 'favorite_clips#favorite'
   resources :clips, only: [:show]
   resources :streamers, only: [:show]
+  post '/twitch', to: 'pages#update_db'
   root 'pages#home'
 end
