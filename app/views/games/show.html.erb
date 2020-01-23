@@ -1,13 +1,14 @@
 <h1><%= @game.name %></h1>
 <%= image_tag(@game.img_url) %><br>
 <%= form_for @game, controller: 'game', action: 'favorite'  do |f| %>
-    <%= f.submit 'Add to Favorites' %>
+    <%= f.submit 'Add to Favorite Games' %>
 <%end%><br>
 <h2>Top Clips</h2>
-<% @game.tw_top_clips.each do |clip| %>
-<%= link_to clip.title, clip_path(clip) %><br>
+<% @game.top_6_clips.each do |clip| %>
+<%= link_to clip.title, clip_path(clip) %> View Count: <%= clip.view_count %><br>
+
 <% end %>
-<h2><%= "Users Favorite" unless @game.users.empty? %></h2>
+<h2><%= "These Users Have Favorited This Game:" unless @game.users.empty? %></h2>
 <% @game.users.each do |user|%>
 <%= link_to user.username, user_path(user) %><br>
 <% end%>

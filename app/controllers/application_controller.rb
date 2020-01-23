@@ -10,4 +10,5 @@ class ApplicationController < ActionController::Base
             redirect_to controller: 'pages', action: 'home'
         end
     end
+
 end

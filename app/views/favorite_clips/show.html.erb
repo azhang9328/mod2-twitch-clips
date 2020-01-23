@@ -1,0 +1,12 @@
+<h1><%= @favorite_clip.title %></h1><br>
+<%= link_to @favorite_clip.url, @favorite_clip.url %><br>
+<h3>View Count</h3>
+<%= @favorite_clip.view_count %><br>
+<h3>Date Clipped</h3>
+<%= @favorite_clip.date_clipped %><br>
+<h3>Streamer</h3>
+<%= link_to @favorite_clip.streamer.username, streamer_path(@favorite_clip.streamer) %><br>
+<h3>Game</h3>
+<%= link_to @favorite_clip.game.name, game_path(@favorite_clip.game) %><br><br>
+<%= link_to 'Edit Clip Title', edit_user_favorite_clip_path(@user, @favorite_clip) %><br>
+<%= link_to 'Delete From Favorite Clips', user_favorite_clip_path(@user, @favorite_clip), method: :delete %>

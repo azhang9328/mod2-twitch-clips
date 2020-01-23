@@ -1,6 +1,13 @@
 <h1><%= @user.username %>'s Profile</h1>
-<% num = 1%>
+<h2>Favorited Games</h2>
+<% gamenum = 1%>
 <% @user.games.each do |game| %>
-<%= "#{num}. "  %><%= link_to game.name, game_path(game) %><br>
-<% num += 1 %>
+<%= "#{gamenum}. "  %><%= link_to game.name, game_path(game) %><br>
+<% gamenum += 1 %>
+<h3>Favorited Clips</h3>
+<% clipnum = 1%>
+<% @user.favorite_clips.each do |clip| %>
+<%= "#{clipnum}. "  %><%= link_to clip.title, user_favorite_clip_path(@user, clip) %><br>
+<% clipnum += 1 %>
 <% end%>
+<% end%><br>

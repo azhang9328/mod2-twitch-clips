@@ -1,0 +1,5 @@
+<%= form_for [@user, @favorite_clip] do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title, size: 50%><br>
+<%= f.submit 'Edit'%>
+<%end%>

@@ -10,16 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 6) do
 
   create_table "clips", force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.integer "view_count"
     t.string "date_clipped"
-    t.integer "streamer_tw_id"
     t.integer "streamer_id"
     t.integer "game_id"
+    t.datetime "corf"
+  end
+
+  create_table "favorite_clips", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.integer "view_count"
+    t.string "date_clipped"
+    t.integer "streamer_id"
+    t.integer "game_id"
+    t.integer "user_id"
+    t.integer "clip_id"
     t.datetime "corf"
   end
 

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:show] do 
+    resources :favorite_clips, only: [:show, :edit, :destroy, :update]
+  end
+  resources :users, only: [:new, :create]
   patch 'games/:id', to: 'games#favorite'
-  resources :games, only: [:index, :show]
+  resources :games, only: [:show]
+  patch 'clips/:id', to: 'favorite_clips#favorite'
   resources :clips, only: [:show]
+  resources :streamers, only: [:show]
   root 'pages#home'
 end

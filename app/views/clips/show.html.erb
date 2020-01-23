@@ -1,6 +1,13 @@
-<%= @clip.title %><br>
-<%= @clip.url %><br>
+<h1><%= @clip.title %><br></h1>
+<%= link_to @clip.url, @clip.url%><br>
+<%= form_for @clip, controller: 'favorite_clip', action: 'favorite'  do |f| %>
+    <%= f.submit 'Add to Favorite Clips' %>
+<%end%><br>
+<h3>View Count</h3>
 <%= @clip.view_count %><br>
+<h3>Date Clipped</h3>
 <%= @clip.date_clipped %><br>
-<%= @clip.streamer_id %><br>
-<%= @clip.game.name %>
+<h3>Streamer</h3>
+<%= link_to @clip.streamer.username, streamer_path(@clip.streamer) %><br>
+<h3>Game</h3>
+<%= link_to @clip.game.name, game_path(@clip.game) %>

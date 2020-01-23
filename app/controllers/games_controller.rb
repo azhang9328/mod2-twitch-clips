@@ -1,8 +1,4 @@
 class GamesController < ApplicationController
-    def index 
-        @games = Game.top_6
-    end
-
     def show 
         @game = Game.find(params[:id])
     end
@@ -11,7 +7,7 @@ class GamesController < ApplicationController
         @game = Game.find(params[:id])
         if !@user.games.include?(@game)
             @user.games << @game
-            redirect_to controller: 'games', action: 'index'
+            redirect_to controller: 'pages', action: 'home'
         else 
             redirect_to controller: 'games', action: 'show'
         end 
