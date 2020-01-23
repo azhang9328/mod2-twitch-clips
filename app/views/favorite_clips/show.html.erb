@@ -8,5 +8,6 @@
 <%= link_to @favorite_clip.streamer.username, streamer_path(@favorite_clip.streamer) %><br>
 <h3>Game</h3>
 <%= link_to @favorite_clip.game.name, game_path(@favorite_clip.game) %><br><br>
-<%= link_to 'Edit Clip Title', edit_user_favorite_clip_path(@user, @favorite_clip) %><br>
-<%= link_to 'Delete From Favorite Clips', user_favorite_clip_path(@user, @favorite_clip), method: :delete %>
+<%= link_to 'Edit Clip Title', edit_user_favorite_clip_path(@user, @favorite_clip)%><br>
+<%= link_to 'Delete From Favorite Clips', user_favorite_clip_path(@user, @favorite_clip), method: :delete%>
+<%= button_to 'Return to Profile', user_path(params[:user_id])%>
