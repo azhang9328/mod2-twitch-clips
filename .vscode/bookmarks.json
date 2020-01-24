@@ -13,7 +13,7 @@
 		"path": "$ROOTPATH$/app/views/layouts/application.html.erb",
 		"bookmarks": [
 			{
-				"line": 12,
+				"line": 15,
 				"column": 4,
 				"label": "layout"
 			}

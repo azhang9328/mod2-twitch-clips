@@ -1,12 +1,22 @@
-<h1>HOMEPAGE</h1>
-<%= button_to 'Check Twitch', controller: 'pages', action: 'update_db' unless !session[:user_id]%>
+<button type="button" class="btn btn-outline-info"><%= link_to 'Check Twitch', controller: 'pages', action: 'update_db' unless !session[:user_id]%></button>
 <h1>Top Games</h1>
+
+
 <% @games.each do |game| %>
-<h2><%= link_to game.name, game_path(game) %></h2>
-<%= image_tag(game.img_url) %><br>
+<div class="card" style="width: 18rem;">
+<img src=<%= game.img_url %> class="card-img-top" alt="...">
+<div class="card-body">
+<h4 class="card-title"><%= link_to game.name, game_path(game) %></h4>
+</div>
+</div>
 <% end%>
+
 <h1>Not Top Games</h1>
 <% @not_top_games.each do |game| %>
-<h2><%= link_to game.name, game_path(game) %></h2>
-<%= image_tag(game.img_url) %><br>
+<div class="card" style="width: 18rem;">
+<img src=<%= game.img_url %> class="card-img-top" alt="...">
+<div class="card-body">
+<h4 class="card-title"><%= link_to game.name, game_path(game) %></h4>
+</div>
+</div>
 <% end%>

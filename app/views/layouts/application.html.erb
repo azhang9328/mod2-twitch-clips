@@ -9,13 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= link_to 'Login', controller: "sessions", action: "new" unless session[:user_id]%>
-    <%= link_to "Log Out", logout_path, method: :delete unless !session[:user_id]%><br>
-    <%= link_to 'Home', controller: "pages", action: "home" %>
-    <%= link_to "Profile", controller: "users", action: "show", id: session[:user_id] unless !session[:user_id]%>
-    <br>
-    <br>
+  <body class="text-light bg-dark">
+  <nav class="navbar">
+  <a class="navbar-brand" href="/"><h1>Twitch Clips</h1>
+    <button type="button" class="btn"><%= link_to "Profile", controller: "users", action: "show", id: session[:user_id] unless !session[:user_id]%></button>
+    <button type="button" class="btn"><%= link_to 'Login', controller: "sessions", action: "new" unless session[:user_id]%></button>
+    <button type="button" class="btn"><%= link_to "Log Out", logout_path, method: :delete unless !session[:user_id]%><br></button>
+    </nav>
+    <div class="mx-auto px-5" style="width: 500px;">
     <%= yield %>
+    </div>
   </body>
 </html>
