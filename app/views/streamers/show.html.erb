@@ -2,3 +2,8 @@
 <%= image_tag(@streamer.profile_img_url) %><br><br>
 <%= @streamer.description %><br>
 Total Views: <%= @streamer.view_count %>
+<h2>Clips</h2>
+<% @streamer.clips.each do |clip|%>
+<%= link_to clip.title, clip_path(clip) %>
+Game: <%= clip.game.name %>
+<% end%>
