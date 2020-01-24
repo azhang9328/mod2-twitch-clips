@@ -25,7 +25,6 @@ class AskTwitch
 
     def self.tw_top_clips(game_id)
         response = RestClient.get "https://api.twitch.tv/helix/clips?game_id=#{game_id}&first=6", {'Client-ID': "zjedi22l11dd49v9mymr6vw9kmlbow"}
-        response = RestClient.get "https://api.twitch.tv/helix/clips?game_id=21779&first=6&started_at=2020-01-23-T17:55", {'Client-ID': "zjedi22l11dd49v9mymr6vw9kmlbow"}
         clips = JSON.parse(response)
         broadcaster_ids = ''
         clips['data'].map do |clip|

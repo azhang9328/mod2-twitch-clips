@@ -1,4 +1,5 @@
 <h1><%= @clip.title %><br></h1>
+<iframe width="600" height="400" src= <%=@embed%> frameborder="0"></iframe><br>
 <%= link_to @clip.url, @clip.url%><br>
 <%= form_for @clip, controller: 'favorite_clip', action: 'favorite'  do |f| %>
     <%= f.submit 'Add to Favorite Clips' %>
