@@ -4,10 +4,10 @@
 <% @user.games.each do |game| %>
 <%= "#{gamenum}. "  %><%= link_to game.name, game_path(game) %><br>
 <% gamenum += 1 %>
-<h3>Favorited Clips</h3>
+<% end%><br>
+<h2>Favorited Clips</h2>
 <% clipnum = 1%>
 <% @user.favorite_clips.each do |clip| %>
 <%= "#{clipnum}. "  %><%= link_to clip.title, user_favorite_clip_path(@user, clip) %><br>
 <% clipnum += 1 %>
 <% end%>
-<% end%><br>

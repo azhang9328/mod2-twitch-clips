@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <%= link_to 'Login', controller: "sessions", action: "new" %>
-    <%= link_to "Log Out", logout_path, method: :delete %><br>
+    <%= link_to 'Login', controller: "sessions", action: "new" unless session[:user_id]%>
+    <%= link_to "Log Out", logout_path, method: :delete unless !session[:user_id]%><br>
     <%= link_to 'Home', controller: "pages", action: "home" %>
     <%= link_to "Profile", controller: "users", action: "show", id: session[:user_id] unless !session[:user_id]%>
     <br>

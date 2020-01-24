@@ -1,6 +1,6 @@
 class FavoriteClipsController < ApplicationController
     before_action :find_favorite_clip, only: [:show, :edit, :update, :destroy]
-    before_action :correct_user?, only: [:show, :edit, :update, :destroy]
+    before_action :correct_user?, only: [:edit, :update, :destroy]
 
     def update
         @favorite_clip.update(params.require(:favorite_clip).permit(:title))
@@ -30,7 +30,6 @@ class FavoriteClipsController < ApplicationController
     def correct_user?
         link_user_id = params[:user_id]
         if !@user.favorite_clips.include?(FavoriteClip.find(params[:id]))
-            puts "---incorrect user"
             redirect_to controller: 'users', action: 'show', id: "#{link_user_id}"
         end
     end
