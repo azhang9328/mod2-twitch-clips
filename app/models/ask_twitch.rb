@@ -38,6 +38,8 @@ class AskTwitch
                 tempclip.update(corf: DateTime.current)
                 sleep(1)
             else 
+                tempclip = Clip.create(url: clip['url'], title: clip['title'], view_count: clip['view_count'], date_clipped: clip['created_at'], corf: DateTime.current)
+                sleep(1)
                 tempstreamer = AskTwitch.find_or_create_streamer(clip['broadcaster_id'])
                 sleep(1)
                 tempgame = Game.find_by(tw_id: clip['game_id'])
@@ -46,8 +48,6 @@ class AskTwitch
                 if tempstreamer == nil 
                     tempstreamer = AskTwitch.find_or_create_streamer(clip['broadcaster_id'])
                 end
-                tempclip = Clip.create(url: clip['url'], title: clip['title'], view_count: clip['view_count'], date_clipped: clip['created_at'], corf: DateTime.current)
-                sleep(1)
                 puts "---after check streamer: #{tempstreamer} game: #{tempgame}"
                 tempclip.update(streamer_id: tempstreamer.id, game_id: tempgame.id)
             end
@@ -59,7 +59,7 @@ class AskTwitch
         temp = JSON.parse(response)
         sleep(1)
         streamer = temp['data'][0]
-        tempstreamer = Streamer.find_by(tw_id: streamer['id'])
+        tempstreamer = Streamer.find_by(tw_id: broadcaster_id)
         puts "---find or create streamer: #{tempstreamer}"
         if tempstreamer.nil? 
             Streamer.create(tw_id: streamer['id'], username: streamer['display_name'], broadcaster_type: streamer['broadcaster_type'], description: streamer['description'], profile_img_url: streamer['profile_image_url'], view_count: streamer['view_count'])
