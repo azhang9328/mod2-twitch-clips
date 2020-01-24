@@ -25,23 +25,19 @@ class AskTwitch
 
     def self.tw_top_clips(game_id)
         response = RestClient.get "https://api.twitch.tv/helix/clips?game_id=#{game_id}&first=6", {'Client-ID': "zjedi22l11dd49v9mymr6vw9kmlbow"}
+        response = RestClient.get "https://api.twitch.tv/helix/clips?game_id=21779&first=6&started_at=2020-01-23-T17:55", {'Client-ID': "zjedi22l11dd49v9mymr6vw9kmlbow"}
         clips = JSON.parse(response)
-        sleep(1)
         broadcaster_ids = ''
         clips['data'].map do |clip|
             tempclip = Clip.find_by(url: clip['url'], title: clip['title'])
-            sleep(1)
             if tempclip != nil
                 tempfavclip = FavoriteClip.find_by(clip_id: tempclip.id)
                 tempfavclip.update(view_count: clip['view_count'], corf: DateTime.current) unless tempfavclip.nil?
                 sleep(1)
                 tempclip.update(corf: DateTime.current)
-                sleep(1)
             else 
                 tempclip = Clip.create(url: clip['url'], title: clip['title'], view_count: clip['view_count'], date_clipped: clip['created_at'], corf: DateTime.current)
-                sleep(1)
                 tempstreamer = AskTwitch.find_or_create_streamer(clip['broadcaster_id'])
-                sleep(1)
                 tempgame = Game.find_by(tw_id: clip['game_id'])
                 sleep(1)
                 puts "---before check streamer: #{tempstreamer} game: #{tempgame}"
