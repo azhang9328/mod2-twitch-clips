@@ -1,4 +1,4 @@
-Flatiron - Mod 2 Project: Ghetto Top Twitch Games/Clips
+Flatiron - Mod 2 Project: Top Twitch Games/Clips
 ===
 ## About
 Displays current top games being streamed and clips for those games according to Twitch. Allows users to see game information, clip information and streamers information.
